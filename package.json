@@ -2,8 +2,18 @@
   "name": "geoapp-front",
   "version": "0.1.0",
   "private": true,
+  "scripts": {
+    "add:device": "ionic cap add",
+    "sync": "ionic cap sync",
+    "open": "ionic cap open",
+    "start": "ionic serve --port=3000",
+    "start:device": "ionic cap run -l --external --port=3000",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
   "dependencies": {
-    "@capacitor/android": "^3.0.1",
+    "@capacitor/android": "3.1.2",
     "@capacitor/camera": "^1.0.1",
     "@capacitor/core": "3.0.1",
     "@capacitor/filesystem": "^1.0.1",
@@ -33,12 +43,6 @@
     "rxjs": "^7.1.0",
     "web-vitals": "^1.1.2",
     "yup": "^0.32.9"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": [
