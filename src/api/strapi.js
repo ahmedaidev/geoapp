@@ -1,6 +1,6 @@
 import axios from 'axios'
 
 export default axios.create({
-  baseURL: 'http://192.168.20.20',
+  baseURL: 'https://geoapp-apiv2.herokuapp.com',
   // headers: { Authorization: `Bearer ${localStorage.getItem('jwt')}` },
 })

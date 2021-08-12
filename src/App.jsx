@@ -50,16 +50,15 @@ const App = ({ fetchDistricts, fetchCategories }) => {
       <IonReactRouter>
         <IonTabs>
           <IonRouterOutlet>
-            <Route path="/map" component={Map} />
+            <Route path="/" exact component={Map} />
             <Route path="/search" component={Search} />
             <Route path="/districts" component={District} />
             <Route path="/categories" component={Category} />
             <Route path="/contribute" component={Contribute} />
-            <Route path="/" exact render={() => <Redirect to="/map" />} />
           </IonRouterOutlet>
 
           <IonTabBar slot="bottom">
-            <IonTabButton tab="map" href="/map">
+            <IonTabButton tab="map" href="/">
               <IonIcon icon={mapOutline} />
               <IonLabel>Map</IonLabel>
             </IonTabButton>

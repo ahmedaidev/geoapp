@@ -1,5 +1,6 @@
 {
-  "name": "geoapp-front",
+  "name": "geoapp-client",
+  "homepage": "https://ahmedaidev.github.io/geoapp",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -9,6 +10,7 @@
     "start": "ionic serve --port=3000",
     "start:device": "ionic cap run -l --external --port=3000",
     "build": "react-scripts build",
+    "deploy": "push-dir --dir=build --branch=gh-pages --cleanup",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -56,6 +58,7 @@
     "not op_mini all"
   ],
   "devDependencies": {
-    "@capacitor/cli": "3.0.1"
+    "@capacitor/cli": "3.0.1",
+    "push-dir": "^0.4.1"
   }
 }
