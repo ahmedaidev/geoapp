@@ -1,4 +1,4 @@
-import { Redirect, Route } from 'react-router-dom'
+import { Route } from 'react-router-dom'
 import {
   IonApp,
   IonIcon,
@@ -8,7 +8,7 @@ import {
   IonTabButton,
   IonTabs,
 } from '@ionic/react'
-import { IonReactRouter } from '@ionic/react-router'
+import { IonReactRouter, IonReactHashRouter } from '@ionic/react-router'
 import {
   mapOutline,
   location,
@@ -47,7 +47,7 @@ import './theme/variables.css'
 const App = ({ fetchDistricts, fetchCategories }) => {
   return (
     <IonApp>
-      <IonReactRouter>
+      <IonReactHashRouter>
         <IonTabs>
           <IonRouterOutlet>
             <Route path="/" exact component={Map} />
@@ -84,7 +84,7 @@ const App = ({ fetchDistricts, fetchCategories }) => {
             </IonTabButton>
           </IonTabBar>
         </IonTabs>
-      </IonReactRouter>
+      </IonReactHashRouter>
     </IonApp>
   )
 }
