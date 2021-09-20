@@ -1,4 +1,4 @@
-import { Route, Redirect } from 'react-router-dom'
+import { Route } from 'react-router-dom'
 import {
   IonApp,
   IonIcon,
@@ -8,7 +8,7 @@ import {
   IonTabButton,
   IonTabs,
 } from '@ionic/react'
-import { IonReactRouter, IonReactHashRouter } from '@ionic/react-router'
+import { IonReactRouter } from '@ionic/react-router'
 import {
   mapOutline,
   location,
@@ -89,7 +89,7 @@ const App = ({ fetchDistricts, fetchCategories }) => {
   )
 }
 
-const mapStateToProps = state => ({})
+const mapStateToProps = (state) => ({})
 
 const mapDispatchToProps = {
   fetchDistricts,

@@ -1,6 +1,5 @@
 {
   "name": "@geoapp/client",
-  "homepage": "https://ahmedaidev.github.io/geoapp",
   "version": "1.0.0",
   "scripts": {
     "add:device": "ionic cap add",
