@@ -1,8 +1,7 @@
 {
-  "name": "geoapp-client",
+  "name": "@geoapp/client",
   "homepage": "https://ahmedaidev.github.io/geoapp",
-  "version": "0.1.0",
-  "private": true,
+  "version": "1.0.0",
   "scripts": {
     "add:device": "ionic cap add",
     "sync": "ionic cap sync",

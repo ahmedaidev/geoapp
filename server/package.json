@@ -1,7 +1,6 @@
 {
-  "name": "geoapp-backend",
-  "private": true,
-  "version": "0.1.0",
+  "name": "@geoapp/server",
+  "version": "1.0.0",
   "description": "A Strapi application",
   "scripts": {
     "develop": "strapi develop",
@@ -25,9 +24,6 @@
     "strapi-plugin-upload": "3.6.5",
     "strapi-plugin-users-permissions": "3.6.5",
     "strapi-utils": "3.6.5"
-  },
-  "author": {
-    "name": "A Strapi developer"
   },
   "strapi": {
     "uuid": "d07cb796-1662-4453-96fe-2fcfe38f848d"
