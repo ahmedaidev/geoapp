@@ -1,0 +1,31 @@
+{
+  "kind": "collectionType",
+  "collectionName": "districts",
+  "info": {
+    "name": "district"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "denominazione": {
+      "type": "string",
+      "required": true
+    },
+    "lat": {
+      "type": "float",
+      "required": true
+    },
+    "lng": {
+      "required": true,
+      "type": "float"
+    },
+    "locations": {
+      "via": "district",
+      "collection": "location"
+    }
+  }
+}

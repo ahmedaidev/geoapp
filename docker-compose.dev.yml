@@ -1,0 +1,35 @@
+version: '3.3'
+
+services:
+  database:
+    image: postgis/postgis
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=geoapp
+    ports:
+      - '5432:5432'
+
+  geoserver:
+    depends_on:
+      - database
+    image: thinkwhere/geoserver
+    ports:
+      - '8080:8080'
+
+  api:
+    depends_on:
+      - database
+    build:
+      context: ./server
+      dockerfile: Dockerfile.dev
+    environment:
+      - HOST=0.0.0.0
+      - PORT=5000
+      - DATABASE_URI=postgres://postgres:postgres@database:5432/geoapp
+      - ADMIN_JWT_SECRET=jdsaoiwjq91uoidj1djaosidj120
+    volumes:
+      - /app/node_modules
+      - ./server:/app
+    ports:
+      - '5000:5000'

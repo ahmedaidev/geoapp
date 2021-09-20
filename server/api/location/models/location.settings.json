@@ -1,0 +1,74 @@
+{
+  "kind": "collectionType",
+  "collectionName": "locations",
+  "info": {
+    "name": "location"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "denominazione": {
+      "type": "string",
+      "required": true
+    },
+    "indirizzo": {
+      "type": "string",
+      "required": true
+    },
+    "civico": {
+      "type": "string",
+      "required": true
+    },
+    "email": {
+      "type": "email",
+      "unique": true
+    },
+    "telefono": {
+      "type": "biginteger"
+    },
+    "sito": {
+      "type": "string"
+    },
+    "orario": {
+      "type": "string"
+    },
+    "descrizizone": {
+      "type": "text"
+    },
+    "categoria": {
+      "type": "integer"
+    },
+    "cover": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false,
+      "pluginOptions": {}
+    },
+    "lat": {
+      "required": true,
+      "type": "float"
+    },
+    "lng": {
+      "type": "float",
+      "required": true
+    },
+    "category": {
+      "model": "category",
+      "via": "locations"
+    },
+    "district": {
+      "model": "district",
+      "via": "locations"
+    }
+  }
+}
