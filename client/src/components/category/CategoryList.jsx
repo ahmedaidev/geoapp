@@ -44,21 +44,21 @@ const CategoryList = ({
     fetchCategories()
   }, [fetchCategories])
 
-  const onCategorySelect = category => {
+  const onCategorySelect = (category) => {
     const temp = { ...checkedState, [category.id]: !checkedState[category.id] }
     setCheckedState(temp)
   }
 
   const onFilterSubmit = () => {
-    const categoryIds = Object.entries(checkedState).map(categoryId =>
+    const categoryIds = Object.entries(checkedState).map((categoryId) =>
       categoryId[1] === true ? +categoryId[0] : null
     )
-    if (categoryIds.every(value => value === null)) {
+    if (categoryIds.every((value) => value === null)) {
       clearLocations()
-      history.push('/map')
+      history.push('/')
     } else {
       fetchLocations(categoryIds)
-      history.push('/map')
+      history.push('/')
     }
   }
 
@@ -68,7 +68,7 @@ const CategoryList = ({
         <IonProgressBar type="indeterminate"></IonProgressBar>
       ) : (
         <IonList>
-          {categories.map(category => (
+          {categories.map((category) => (
             <IonItem
               key={category.id}
               button
@@ -133,7 +133,7 @@ const CategoryList = ({
   )
 }
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   categories: Object.values(state.category.categories),
   loading: state.category.loading,
   error: state.category.error,

@@ -1,42 +1,48 @@
-version: '3.3'
+version: '3'
 
 services:
   database:
-    restart: unless-stopped
     image: postgis/postgis
     env_file:
-      - ./server/.env
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=geoapp
     volumes:
-      - ./data/postgres:/var/lib/postgresql/data
+      - ./postgres_data:/var/lib/postgresql/data
     ports:
       - '5432:5432'
 
   geoserver:
-    restart: unless-stopped
     depends_on:
       - database
     image: thinkwhere/geoserver
     volumes:
-      - ./data/geoserver:/opt/geoserver/data_dir
+      - ./geoserver_data:/opt/geoserver/data_dir
     ports:
       - '8080:8080'
 
   api:
-    restart: unless-stopped
     depends_on:
       - database
-    build: ./server
+    build:
+      context: ./server
+      dockerfile: Dockerfile.dev
     environment:
-      - NODE_ENV=production
       - HOST=0.0.0.0
       - PORT=5000
-    env_file:
-      - ./server/.env
+      - DATABASE_URI=postgres://postgres:postgres@database:5432/geoapp
+      - ADMIN_JWT_SECRET=jdsaoiwjq91uoidj1djaosidj120
+    volumes:
+      - /app/node_modules
+      - ./server:/app
+    ports:
+      - '5000:5000'
 
   nginx:
-    restart: unless-stopped
     depends_on:
       - api
-    build: ./nginx
+    build:
+      context: ./nginx
+      dockerfile: Dockerfile.dev
     ports:
       - '80:80'

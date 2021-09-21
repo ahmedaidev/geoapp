@@ -6,15 +6,15 @@ import { setMapView } from '../../redux/actions'
 
 // TODO Fix map view
 export const LocationList = ({ locations, history }) => {
-  const onLocationClick = location => {
+  const onLocationClick = (location) => {
     console.log('location :>> ', location)
     setMapView({ lat: location.lat, lng: location.lng })
-    history.push('/map')
+    history.push('/')
   }
 
   return (
     <IonList>
-      {locations.map(location => (
+      {locations.map((location) => (
         <IonItem
           button
           key={location.id}
@@ -27,7 +27,7 @@ export const LocationList = ({ locations, history }) => {
   )
 }
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   locations: Object.values(state.location),
 })
 

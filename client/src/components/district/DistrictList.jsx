@@ -22,9 +22,9 @@ const DistrictList = ({
     fetchDistricts()
   }, [fetchDistricts])
 
-  const onDistrictClick = district => {
+  const onDistrictClick = (district) => {
     setMapView({ lat: district.lat, lng: district.lng })
-    history.push('/map')
+    history.push('/')
   }
 
   return (
@@ -33,7 +33,7 @@ const DistrictList = ({
         <IonProgressBar type="indeterminate"></IonProgressBar>
       ) : (
         <IonList>
-          {districts.map(district => (
+          {districts.map((district) => (
             <IonItem
               button
               key={district.id}
@@ -67,7 +67,7 @@ const DistrictList = ({
   )
 }
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   districts: Object.values(state.district.districts),
   loading: state.district.loading,
   error: state.district.error,
